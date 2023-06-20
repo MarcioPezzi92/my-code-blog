@@ -31,6 +31,11 @@ export const OwnerInformation = styled.div`
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        span {
+          font-weight: 700;
+          font-size: 12px;
+          color: ${(props) => props.theme.blue};
+        }
         img {
           width: 11.25px;
         }
