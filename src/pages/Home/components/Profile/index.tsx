@@ -33,7 +33,7 @@ export function Profile() {
   }, [])
 
   return (
-    <ProfileContainer style={{ marginTop: '-5rem' }}>
+    <ProfileContainer>
       <Photo src={`https://github.com/${username}.png`} alt="Profile photo" />
       <OwnerInformation>
         <div className="description">

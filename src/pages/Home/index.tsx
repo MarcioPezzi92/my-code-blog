@@ -1,12 +1,13 @@
 import { Profile } from './components/Profile'
 import { Publications } from './components/Publications'
-import { HomeContainer } from './styles'
+import { SearchForm } from './components/SearchForm'
 
 export function Home() {
   return (
-    <HomeContainer>
+    <div>
       <Profile />
+      <SearchForm />
       <Publications />
-    </HomeContainer>
+    </div>
   )
 }

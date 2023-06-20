@@ -28,6 +28,7 @@ export const OwnerInformation = styled.div`
         line-height: 130%;
       }
       a {
+        padding: 0.2rem 0.8rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;

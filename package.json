@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
-    "@types/marked": "^5.0.0",
-    "@types/styled-components": "^5.1.26",
     "axios": "^1.4.0",
     "date-fns": "^2.30.0",
     "htmlparser2": "^9.0.0",
@@ -27,8 +25,10 @@
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^1.2.0",
+    "@types/marked": "^5.0.0",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "@vitejs/plugin-react": "^4.0.0",
