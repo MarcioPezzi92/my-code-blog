@@ -13,13 +13,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    padding-bottom: 4rem;
     background: ${(props) => props.theme['base-background']};
-    color: ${(props) => props.theme['base-text']};
     -webkit-font-smoothing: antialiased;
   }
 
-  body, button {
+  body, button, p, span {
     font: 400 1rem Nunito, sans-serif;
+    color: ${(props) => props.theme['base-text']};
   }
 
   a {
@@ -27,5 +28,13 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 12px;
     font-weight: 700;
     color: ${(props) => props.theme.blue};
+  }
+
+  h1, h2, h3 {
+    color: ${(props) => props.theme['base-title']};
+  }
+
+  ul {
+    list-style: none;
   }
 `
