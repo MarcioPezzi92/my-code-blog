@@ -7,6 +7,7 @@ import {
 } from 'react'
 import { api } from '../lib/axios'
 import { marked } from 'marked'
+import { AxiosResponse } from 'axios'
 
 interface User {
   name: string
@@ -26,7 +27,12 @@ interface Publication {
 
 interface PublicationsContextType {
   publications: Publication[]
-  fetchAllPublications?: (user: string, repository: string) => Promise<void>
+  fetchPublications: (
+    user: string,
+    repository: string,
+    query?: string,
+  ) => Promise<void>
+  searchPublications: (query: string) => void
 }
 
 interface ProviderProps {
@@ -47,18 +53,33 @@ export const PublicationsContext = createContext({} as PublicationsContextType)
 export function PublicationsProvider({ children }: ProviderProps) {
   const [publications, setPublications] = useState<Publication[]>([])
 
-  const fetchAllPublications = useCallback(
-    async (user: string, repository: string) => {
-      try {
-        const res = await api.get(`repos/${user}/${repository}/issues`)
+  const fetchPublications = useCallback(
+    async (user: string, repository: string, query?: string) => {
+      let res: AxiosResponse<Publication[], any>
 
-        for (const item of res.data) {
-          const data = cleanMarkedText(item.body)
-          if (data) item.bodyAsHTML = data
-          else item.bodyAsHTML = 'Falha ao tentar converter o texto!'
+      try {
+        if (query) {
+          console.log('query', query)
+          res = await api.get('search/issues', {
+            params: {
+              q: `${query}%20repo:${USER}/${REPOSITORY}`,
+            },
+          })
+          console.log('res', res)
+        } else {
+          res = await api.get(`repos/${user}/${repository}/issues`)
         }
 
-        setPublications(res.data)
+        if (res.data.length) {
+          for (const item of res.data) {
+            const data = cleanMarkedText(item.body)
+            if (data) item.bodyAsHTML = data
+            else item.bodyAsHTML = 'Falha ao tentar converter o texto!'
+          }
+          setPublications(res.data)
+        } else {
+          setPublications([])
+        }
       } catch (error) {
         console.error(error)
       }
@@ -66,12 +87,18 @@ export function PublicationsProvider({ children }: ProviderProps) {
     [],
   )
 
+  const searchPublications = async (query: string) => {
+    await fetchPublications(USER, REPOSITORY, query)
+  }
+
   useEffect(() => {
-    fetchAllPublications(USER, REPOSITORY)
-  }, [fetchAllPublications])
+    fetchPublications(USER, REPOSITORY)
+  }, [fetchPublications])
 
   return (
-    <PublicationsContext.Provider value={{ publications }}>
+    <PublicationsContext.Provider
+      value={{ publications, fetchPublications, searchPublications }}
+    >
       {children}
     </PublicationsContext.Provider>
   )
