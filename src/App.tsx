@@ -9,7 +9,7 @@ function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
-      <BrowserRouter>
+      <BrowserRouter basename="/my-code-blog">
         <PublicationsProvider>
           <Router />
         </PublicationsProvider>
