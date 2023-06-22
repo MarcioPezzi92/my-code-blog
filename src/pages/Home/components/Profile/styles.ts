@@ -1,10 +1,7 @@
 import { styled } from 'styled-components'
 
 export const ProfileContainer = styled.section`
-  margin: 0 auto;
-  margin-top: -88px;
   padding: 32px;
-  max-width: 864px;
   background: ${(props) => props.theme['base-profile']};
   border-radius: 10px;
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
@@ -31,9 +28,15 @@ export const OwnerInformation = styled.div`
         line-height: 130%;
       }
       a {
+        padding: 0.2rem 0.8rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        span {
+          font-weight: 700;
+          font-size: 12px;
+          color: ${(props) => props.theme.blue};
+        }
         img {
           width: 11.25px;
         }
