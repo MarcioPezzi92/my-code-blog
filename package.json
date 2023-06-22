@@ -13,6 +13,7 @@
     "@hookform/resolvers": "^3.1.1",
     "axios": "^1.4.0",
     "date-fns": "^2.30.0",
+    "highlight.js": "^11.8.0",
     "htmlparser2": "^9.0.0",
     "marked": "^5.1.0",
     "react": "^18.2.0",
@@ -20,6 +21,7 @@
     "react-hook-form": "^7.45.0",
     "react-markdown": "^8.0.7",
     "react-router-dom": "^6.13.0",
+    "react-syntax-highlighter": "^15.5.0",
     "styled-components": "^6.0.0-rc.3",
     "zod": "^3.21.4"
   },
@@ -28,6 +30,7 @@
     "@types/marked": "^5.0.0",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
+    "@types/react-syntax-highlighter": "^15.5.7",
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",

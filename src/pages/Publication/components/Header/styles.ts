@@ -6,10 +6,20 @@ export const PublicationHeaderContainer = styled.section`
   border-radius: 10px;
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
 
+  h1 {
+    margin: 20px 0 12px 0;
+  }
+
   .footer {
     display: flex;
-    align-items: center;
     gap: 2rem;
+    div {
+      display: flex;
+      gap: 8px;
+      img {
+        width: 18px;
+      }
+    }
   }
 `
 export const Navigation = styled.nav`
@@ -22,5 +32,8 @@ export const Navigation = styled.nav`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    img {
+      width: 12px;
+    }
   }
 `
