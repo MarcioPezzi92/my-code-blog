@@ -22,10 +22,12 @@ export function Profile() {
   )
 
   const fetchProfile = async () => {
-    const res = await axios.get(`http://api.github.com/users/${username}`)
+    const res = await axios.get(`https://api.github.com/users/${username}`)
     const { login, name, bio, company, followers } =
       res.data as ProfileInterface
     setProfile({ login, name, bio, company, followers })
+
+    console.log('fetchProfile', res)
   }
 
   useEffect(() => {
