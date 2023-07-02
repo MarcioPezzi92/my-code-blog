@@ -26,8 +26,6 @@ export function Profile() {
     const { login, name, bio, company, followers } =
       res.data as ProfileInterface
     setProfile({ login, name, bio, company, followers })
-
-    console.log('fetchProfile', res)
   }
 
   useEffect(() => {
